@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import os
+from time import sleep
 
 class Application(tk.Frame):
     def __init__(self, master):
@@ -16,6 +17,9 @@ class Application(tk.Frame):
         self.EnLaunch = tk.Entry(self)                                                 
         self.EnLaunch.grid(row=1, column=2, pady=20, ipadx=20, sticky="w")           
         
+        def sleepy_time():
+            sleep(self.slider.get())
+
         def Runescape():
             amount = self.EnLaunch.get()
             try:
@@ -24,9 +28,13 @@ class Application(tk.Frame):
                 print(f"Please input a number not {str(amount)}")
             else:
                 print(f'Launching {amount} Runescape clients')
-                for i in range(int(amount)):
+                for client in range(int(amount)):
                     os.startfile("rs-launch://www.runescape.com/k=5/l=$(Language:0)/jav_config.ws")
-            
+                    sleepy_time()
+
+        self.slider = tk.Scale(self, orient="horizontal", from_=0, to=60) 
+        self.slider.grid(row=2, column=1)
+
         self.launch = tk.Button(self, text="Launch", command=Runescape)
         self.launch.grid(row=2, column=2, pady=10, ipadx=20, sticky="n")
         
