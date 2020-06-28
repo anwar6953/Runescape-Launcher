@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import os
 from time import sleep
+import subprocess
 
 class Application(tk.Frame):
     def __init__(self, master):
@@ -30,7 +31,12 @@ class Application(tk.Frame):
                 print(f'Launching {amount} Runescape clients')
                 for client in range(int(amount)):
                     os.startfile("rs-launch://www.runescape.com/k=5/l=$(Language:0)/jav_config.ws")
+                    sleep(15)
                     sleepy_time()
+                    if client == 15:
+                        # specify your cmd command
+                        cmdCommand = "C:\\Program Files\\LockHunter\\Lockhunter.exe -d -sm -x C:\\ProgramData\\Jagex\\launcher\\instance.lock"
+                        subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
 
         self.slider = tk.Scale(self, orient="horizontal", from_=0, to=60) 
         self.slider.grid(row=2, column=1)
