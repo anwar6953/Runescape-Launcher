@@ -27,7 +27,7 @@ class Application(tk.Frame):
             try:
                 amount = int(accountAmount)
             except ValueError:
-                print(f'Please input a number not {str(amount)}')
+                print(f'Please input a number not {str(accountAmount)}')
             else:
                 print(f'Launching {amount} Runescape clients')
                 for mainLoop in range(int(amount)):
@@ -42,7 +42,7 @@ class Application(tk.Frame):
             try:
                 amount = int(accountAmount)
             except ValueError:
-                print(f'Please input a number not {str(amount)}')
+                print(f'Please input a number not {str(accountAmount)}')
             else:
                 for mainLoop in range(amount):
                     os.system('runescape-launcher') # This should launch runescape launcher on Debian distros, Using the Download guide of Runescape.com/download
@@ -56,7 +56,7 @@ class Application(tk.Frame):
             try:
                 amount = int(accountAmount)
             except ValueError:
-                print(f'Please input a number not {str(amount)}')
+                print(f'Please input a number not {str(accountAmount)}')
             else:
                 for mainLoop in range(amount):
                     os.system("open -n -a Runescape")
